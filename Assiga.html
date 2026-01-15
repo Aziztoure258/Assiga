@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assiga Village - Hôtel de Luxe & Lodge Africain</title>
+    <style>
+        /*  VARIABLES CSS  */
+        :root {
+            --primary-gold: #C17817;
+            --deep-brown: #3E2723;
+            --warm-sand: #D4A574;
+            --dark-wood: #4A2C2A;
+            --cream: #FAF6F1;
+            --forest-green: #2C5F2D;
+            --white: #FFFFFF;
+            --text-primary: #1A1A1A;
+            --text-secondary: #5D5D5D;
+            --overlay-dark: rgba(26, 26, 26, 0.7);
+        }
+
+        /*  RESET & BASE  */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Georgia', serif;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        /*  NAVIGATION  */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: transparent;
+            padding: 1.5rem 5%;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(62, 39, 35, 0.98);
+            padding: 1rem 5%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        nav .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 4px;
+            font-family: 'Georgia', serif;
+            transition: color 0.3s;
+        }
+
+        nav .logo span {
+            font-weight: 600;
+            color: var(--primary-gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+        }
+
+        .menu-toggle span {
+            width: 28px;
+            height: 2px;
+            background: var(--white);
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /*  HERO SECTION  */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(var(--overlay-dark), var(--overlay-dark)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%233E2723;stop-opacity:1"/><stop offset="100%" style="stop-color:%234A2C2A;stop-opacity:1"/></linearGradient><pattern id="p1" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M10 10 L20 20 M20 10 L10 20" stroke="%23C17817" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect fill="url(%23g1)" width="1920" height="1080"/><rect fill="url(%23p1)" width="1920" height="1080"/><circle fill="%23D4A574" opacity="0.08" cx="1500" cy="300" r="200"/><circle fill="%232C5F2D" opacity="0.06" cx="400" cy="800" r="150"/><path d="M0,900 Q480,750 960,900 T1920,900 L1920,1080 L0,1080 Z" fill="%23C17817" opacity="0.15"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(193, 120, 23, 0.1), transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: var(--white);
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--warm-sand);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 8px;
+            font-weight: 300;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--cream);
+            line-height: 1.6;
+            animation: fadeIn 1s ease-out 0.7s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--primary-gold);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            border: 2px solid var(--primary-gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: left 0.4s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(193, 120, 23, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: transparent;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--deep-brown);
+            transform: translateY(-3px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator::after {
+            content: '↓';
+            font-size: 2rem;
+            color: var(--warm-sand);
+        }
+
+        /*  SECTIONS COMMUNES  */
+        section {
+            padding: 8rem 5%;
+            
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            color: var(--deep-brown);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            line-height: 1.3;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+            margin: 2rem auto;
+        }
+
+        /*  À PROPOS  */
+        #about {
+            background: var(--cream);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            margin-top: 4rem;
+        }
+
+        .about-image {
+            height: 600px;
+            background: linear-gradient(135deg, var(--deep-brown), var(--primary-gold));
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-image::before {
+            content: '🏛️';
+            font-size: 8rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.2;
+        }
+
+        .about-text {
+            padding: 2rem 0;
+        }
+
+        .about-text p {
+            margin-bottom: 1.8rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            padding: 2rem;
+            background: var(--white);
+            border-left: 3px solid var(--primary-gold);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-item h4 {
+            color: var(--deep-brown);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .feature-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /*  CHAMBRES  */
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .room-card {
+            background: var(--white);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid #E8E8E8;
+            position: relative;
+        }
+
+        .room-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-gold), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .room-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .room-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .room-image {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, #3E2723 0%, #C17817 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .room-image::before {
+            content: '🏨';
+            font-size: 5rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.15;
+        }
+
+        .room-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-gold);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .room-info {
+            padding: 2.5rem;
+        }
+
+        .room-info h3 {
+            color: var(--deep-brown);
+            margin-bottom: 1.2rem;
+            font-size: 1.6rem;
+            font-weight: 400;
+        }
+
+        .room-info p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .room-amenities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .amenity {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .room-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #E8E8E8;
+        }
+
+        .room-price {
+            font-size: 1.8rem;
+            color: var(--primary-gold);
+            font-weight: 400;
+        }
+
+        .room-price span {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .btn-small {
+            padding: 0.8rem 1.8rem;
+            background: var(--deep-brown);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-small:hover {
+            background: var(--primary-gold);
+        }
+
+        /* ========== SERVICES ========== */
+        #services {
+            background: var(--deep-brown);
+            color: var(--white);
+        }
+
+        #services .section-label {
+            color: var(--warm-sand);
+        }
+
+        #services .section-title {
+            color: var(--white);
+        }
+
+        #services .section-description {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .service-card:hover {
+            background: rgba(193, 120, 23, 0.1);
+            border-color: var(--primary-gold);
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 400;
+        }
+
+        .service-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        /*  GALERIE  */
+        #gallery {
+            background: var(--cream);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .gallery-item {
+            height: 300px;
+            background: linear-gradient(135deg, var(--forest-green), var(--primary-gold));
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+            height: auto;
+        }
+
+        .gallery-item::before {
+            content: '📷';
+            font-size: 3.5rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.3;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--overlay-dark);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 0.5;
+        }
+
+        .gallery-item:hover::before {
+            transform: translate(-50%, -50%) scale(1.2);
+            opacity: 0.6;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            z-index: 1;
+        }
+
+        /*  TESTIMONIALS  */
+        .testimonials {
+            background: var(--white);
+            padding: 8rem 5%;
+        }
+
+        .testimonials-slider {
+            max-width: 900px;
+            margin: 4rem auto 0;
+            text-align: center;
+        }
+
+        .testimonial-card {
+            padding: 3rem;
+            background: var(--cream);
+            border-left: 4px solid var(--primary-gold);
+        }
+
+        .testimonial-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.9;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-author {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .testimonial-rating {
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        /*  CONTACT  */
+        #contact {
+            background: var(--cream);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 5rem;
+            margin-top: 4rem;
+            background: var(--white);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-info {
+            padding: 4rem 3rem;
+            background: var(--deep-brown);
+            color: var(--white);
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--warm-sand);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: start;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .info-icon {
+            font-size: 1.8rem;
+            color: var(--primary-gold);
+            min-width: 40px;
+        }
+
+        .info-content h4 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .info-content p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+
+        .contact-form {
+            padding: 4rem 3rem;
+        }
+
+/* 
+   FORM GRID
+*/
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 
+    FORM GROUP
+*/
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.6rem;
+}
+
+/* Label */
+.form-group label {
+    margin-bottom: 0.6rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+/* 
+   INPUT / TEXTAREA / SELECT
+ */
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 1.1rem 3rem 1.1rem 1.2rem; /* espace icônes */
+    border: 1.5px solid #D8D8D8;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: var(--white);
+    color: var(--text-primary);
+    transition: 
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.15s ease;
+}
+
+/* Hover */
+.form-group input:hover,
+.form-group textarea:hover,
+.form-group select:hover {
+    border-color: var(--primary-gold);
+}
+
+/* Focus */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 0 4px rgba(193, 120, 23, 0.12);
+}
+
+/*
+   TEXTAREA
+*/
+.form-group textarea {
+    resize: vertical;
+    min-height: 170px;
+    line-height: 1.6;
+}
+
+.form-group textarea::placeholder,
+.form-group input::placeholder {
+    color: #9E9E9E;
+    font-size: 0.9rem;
+}
+
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+
+    background-image: 
+        url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9L12 15L18 9' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1.2rem center;
+    background-size: 18px;
+}
+
+/* Options */
+.form-group option {
+    font-size: 0.95rem;
+    padding: 12px;
+    color: var(--text-primary);
+}
+
+/* Option sélectionnée */
+.form-group select option:checked {
+    background-color: rgba(193, 120, 23, 0.15);
+    font-weight: 600;
+}
+
+
+.form-group:focus-within label {
+    color: var(--primary-gold);
+}
+
+
+@media (max-width: 768px) {
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        font-size: 0.95rem;
+        padding: 1rem 2.8rem 1rem 1.1rem;
+    }
+}
+
+/*
+ERROR MESSAGE*/
+.error {
+    color: #c62828;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+        /*  FOOTER  */
+        footer {
+            background: var(--dark-wood);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 5rem 5% 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--warm-sand);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+
+        .footer-section p {
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /*  ANIMATIONS  */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-15px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-8px);
+            }
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /*  RESPONSIVE  */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .rooms-grid,
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--deep-brown);
+                flex-direction: column;
+                padding: 3rem 2rem;
+                gap: 2rem;
+                transition: left 0.4s ease;
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                letter-spacing: 3px;
+            }
+
+            .hero-content .tagline {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            section {
+                padding: 5rem 5%;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-content,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-image {
+                height: 400px;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .rooms-grid,
+            .services-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 1;
+                grid-row: span 1;
+                height: 300px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo"><span>ASSIGA</span> VILLAGE</a>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="navMenu">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">Notre Histoire</a></li>
+                <li><a href="#rooms">Hébergements</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Galerie</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="subtitle">Hôtel de Luxe & Lodge Africain</div>
+            <h1>ASSIGA VILLAGE</h1>
+            <p class="tagline">L'authenticité africaine au cœur du confort moderne</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Réserver Maintenant</a>
+                <a href="#about" class="btn-secondary">Découvrir</a>
+            </div>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <!-- À propos -->
+    <section id="about" class="fade-in-section">
+        <div class="section-header">
+            <div class="section-label">Notre Histoire</div>
+            <h2 class="section-title">Une Expérience Authentique au Cœur de l'Afrique</h2>
+            <div class="divider"></div>
+            <p class="section-description">
+                Découvrez un lieu unique où l'élégance contemporaine rencontre l'hospitalité africaine traditionnelle
+            </p>
+        </div>
+        <div class="about-content">
+            <div class="about-image"></div>
+            <div class="about-text">
+                <p>
+                    Situé au cœur d'un paysage africain préservé, Assiga Village incarne l'excellence de l'hôtellerie de luxe tout en célébrant l'authenticité culturelle. Notre établissement a été pensé comme un pont entre tradition et modernité, offrant à nos hôtes une immersion totale dans la richesse de l'Afrique.
+                </p>
+                <p>
+                    Chaque espace a été conçu avec soin pour refléter l'âme africaine : des matériaux nobles issus de l'artisanat local, une architecture respectueuse de l'environnement, et un service d'exception qui perpétue les valeurs d'hospitalité ancestrales.
+                </p>
+                <p>
+                    Notre mission est simple : offrir à chaque visiteur une expérience inoubliable où le luxe rime avec authenticité, où le confort moderne n'efface jamais la richesse culturelle qui fait notre identité.
+                </p>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <h4>Excellence Africaine</h4>
+                        <p>Architecture et décoration inspirées de l'art africain contemporain</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Service Premium</h4>
+                        <p>Hospitalité chaleureuse et professionnalisme de haut niveau</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Écologie</h4>
+                        <p>Engagement pour un tourisme durable et responsable</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Culture Vivante</h4>
+                        <p>Immersion dans les traditions et savoir-faire locaux</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chambres -->
+    <section id="rooms" class="fade-in-section">
+        <div class="section-header">
+            <div class="section-label">Hébergements</div>
+            <h2 class="section-title">Nos Chambres & Suites</h2>
+            <div class="divider"></div>
+            <p class="section-description">
+                Des espaces élégants conçus pour votre bien-être absolu
+            </p>
+        </div>
+        <div class="rooms-grid">
+            <div class="room-card">
+                <div class="room-image">
+                    <div class="room-badge">Authentique</div>
+                </div>
+                <div class="room-info">
+                    <h3>Chambre Traditionnelle</h3>
+                    <p>
+                        Découvrez l'essence de l'architecture africaine traditionnelle réinterprétée avec un confort moderne. Matériaux nobles, décoration artisanale et attention aux détails.
+                    </p>
+                    <div class="room-amenities">
+                        <span class="amenity">Wi-Fi</span>
+                        <span class="amenity">Climatisation</span>
+                        <span class="amenity">Salle de bain</span>
+                    </div>
+                    <div class="room-footer">
+                        <div class="room-price">25 000 <span>FCFA/nuit</span></div>
+                        <a href="#contact" class="btn-small">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            <div class="room-card">
+                <div class="room-image">
+                    <div class="room-badge">Confort</div>
+                </div>
+                <div class="room-info">
+                    <h3>Chambre Confort</h3>
+                    <p>
+                        Espace généreux alliant élégance et fonctionnalité. Vue sur nos jardins luxuriants, mobilier raffiné et équipements haut de gamme pour un séjour mémorable.
+                    </p>
+                    <div class="room-amenities">
+                        <span class="amenity">Wi-Fi</span>
+                        <span class="amenity">Climatisation</span>
+                        <span class="amenity">Vue jardin</span>
+                        <span class="amenity">Minibar</span>
+                    </div>
+                    <div class="room-footer">
+                        <div class="room-price">35 000 <span>FCFA/nuit</span></div>
+                        <a href="#contact" class="btn-small">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            <div class="room-card">
+                <div class="room-image">
+                    <div class="room-badge">Prestige</div>
+                </div>
+                <div class="room-info">
+                    <h3>Suite Village Premium</h3>
+                    <p>
+                        Notre suite d'exception offre un luxe absolu : salon privé, terrasse panoramique, œuvres d'art africaines authentiques et prestations personnalisées.
+                    </p>
+                    <div class="room-amenities">
+                        <span class="amenity">Wi-Fi</span>
+                        <span class="amenity">Climatisation</span>
+                        <span class="amenity">Terrasse privée</span>
+                        <span class="amenity">Salon</span>
+                    </div>
+                    <div class="room-footer">
+                        <div class="room-price">50 000 <span>FCFA/nuit</span></div>
+                        <a href="#contact" class="btn-small">Réserver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="fade-in-section">
+        <div class="section-header">
+            <div class="section-label">Services</div>
+            <h2 class="section-title">Prestations d'Excellence</h2>
+            <div class="divider"></div>
+            <p class="section-description">
+                Des services pensés pour sublimer votre expérience
+            </p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-icon"></span>
+                <h3>Gastronomie Africaine</h3>
+                <p>
+                    Notre chef propose une cuisine raffinée célébrant les saveurs authentiques du continent, avec des produits frais et locaux.
+                </p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon"></span>
+                <h3>Piscine à Débordement</h3>
+                <p>
+                    Plongez dans notre piscine panoramique offrant une vue exceptionnelle sur le paysage environnant.
+                </p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon"></span>
+                <h3>Spa & Bien-être</h3>
+                <p>
+                    Massages traditionnels, soins naturels et rituels de beauté inspirés des traditions africaines.
+                </p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon"></span>
+                <h3>Jardins Paysagers</h3>
+                <p>
+                    Promenez-vous dans nos jardins tropicaux aménagés, véritables havres de paix et de sérénité.
+                </p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon"></span>
+                <h3>Sécurité Premium</h3>
+                <p>
+                    Surveillance discrète 24h/24 et système de sécurité de pointe pour votre tranquillité absolue.
+                </p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon"></span>
+                <h3>Conciergerie</h3>
+                <p>
+                    Service de conciergerie dédié : transferts, excursions culturelles et organisation sur mesure.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galerie -->
+    <section id="gallery" class="fade-in-section">
+        <div class="section-header">
+            <div class="section-label">Galerie</div>
+            <h2 class="section-title">Découvrez Assiga Village</h2>
+            <div class="divider"></div>
+            <p class="section-description">
+                Un aperçu de notre univers en images
+            </p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item"></div>
+            <div class="gallery-item"></div>
+            <div class="gallery-item"></div>
+            <div class="gallery-item"></div>
+            <div class="gallery-item"></div>
+            <div class="gallery-item"></div>
+            <div class="gallery-item"></div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <div class="testimonials fade-in-section">
+        <div class="section-header">
+            <div class="section-label">Témoignages</div>
+            <h2 class="section-title">Ce Que Disent Nos Hôtes</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="testimonials-slider">
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p class="testimonial-text">
+                    "Une expérience exceptionnelle qui allie luxe et authenticité. L'hospitalité africaine à son meilleur niveau. Nous avons été enchantés par chaque détail."
+                </p>
+                <p class="testimonial-author">— Marie & Jean Dupont, France</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <section id="contact" class="fade-in-section">
+        <div class="section-header">
+            <div class="section-label">Contact</div>
+            <h2 class="section-title">Réservez Votre Séjour</h2>
+            <div class="divider"></div>
+            <p class="section-description">
+                Notre équipe est à votre disposition pour organiser votre séjour idéal
+            </p>
+        </div>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Informations</h3>
+                <div class="info-item">
+                    <div class="info-icon"></div>
+                    <div class="info-content">
+                        <h4>Adresse</h4>
+                        <p>Route du Village Touristique<br>BP 1234, Port-gentil<br>Région du Centre, Gabon</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"></div>
+                    <div class="info-content">
+                        <h4>Téléphone</h4>
+                        <p>+241 6 XX XX XX XX<br>+241 6 YY YY YY YY</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"></div>
+                    <div class="info-content">
+                        <h4>Email</h4>
+                        <p>contact@assigavillage.com<br>reservation@assigavillage.com</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"></div>
+                    <div class="info-content">
+                        <h4>Horaires</h4>
+                        <p>Accueil 24h/24<br>Check-in : 14h00<br>Check-out : 12h00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+    <div class="form-row">
+        <div class="form-group">
+        <label for="fullName">Nom et prénom *</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Votre nom et prénom" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" placeholder="exemple@domaine.com" required>
+    </div>
+        
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="checkin">Date d'arrivée *</label>
+            <input type="date" id="checkin" name="checkin" required>
+            <span class="error" id="checkinError">Veuillez sélectionner une date</span>
+        </div>
+        <div class="form-group">
+            <label for="checkout">Date de départ *</label>
+            <input type="date" id="checkout" name="checkout" required>
+            <span class="error" id="checkoutError">Veuillez sélectionner une date</span>
+        </div>
+    </div>
+
+
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="roomType">Type de chambre *</label>
+            <select id="roomType" name="roomType" required>
+                <option value="">Sélectionnez une chambre</option>
+                <option value="traditional" data-price="25000">Chambre Traditionnelle - 25 000 FCFA</option>
+                <option value="comfort" data-price="35000">Chambre Confort - 35 000 FCFA</option>
+                <option value="suite" data-price="50000">Suite Village Premium - 50 000 FCFA</option>
+            </select>
+            <span class="error" id="roomTypeError">Veuillez sélectionner un type de chambre</span>
+    </div>
+    <div class="form-group">
+        <label for="guests">Nombre de personnes *</label>
+        <select id="guests" name="guests" required>
+            <option value="1">1 personne</option>
+            <option value="2" selected>2 personnes</option>
+            <option value="3">3 personnes</option>
+            <option value="4">4 personnes</option>
+            <option value="5">personnaliser</option>
+        </select>
+    </div>
+</div>
+
+<div class="booking-summary" id="bookingSummary" style="display: none;">
+    <div class="summary-content">
+        <div class="summary-item">
+            <span class="summary-label">Nombre de nuits :</span>
+            <span class="summary-value" id="nightsCount">-</span>
+        </div>
+        <div class="summary-item">
+            <span class="summary-label">Prix par nuit :</span>
+            <span class="summary-value" id="pricePerNight">-</span>
+        </div>
+        <div class="summary-item summary-total">
+            <span class="summary-label">Prix total du séjour :</span>
+            <span class="summary-value" id="totalPrice">-</span>
+        </div>
+        <div class="availability-message" id="availabilityMessage">
+            <span class="availability-icon"></span>
+            <span id="availabilityText">Sous réserve de disponibilité – confirmation sous 24h</span>
+        </div>
+        <div class="payment-info" style="margin-top: 15px; font-weight: bold;">
+            <p>Moyens de paiement :</p>
+            <ul>
+                <li>Paiement sur place / acompte</li>
+                <li>Mobile Money / carte / virement</li>
+                <li>Devise acceptée : FCFA, EUR</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    const checkin = document.getElementById("checkin");
+    const checkout = document.getElementById("checkout");
+    const roomType = document.getElementById("roomType");
+    const bookingSummary = document.getElementById("bookingSummary");
+    const nightsCount = document.getElementById("nightsCount");
+    const pricePerNight = document.getElementById("pricePerNight");
+    const totalPrice = document.getElementById("totalPrice");
+    const availabilityText = document.getElementById("availabilityText");
+
+    function updateBookingSummary() {
+        if (!checkin.value || !checkout.value || !roomType.value) {
+            bookingSummary.style.display = "none";
+            return;
+        }
+
+        const start = new Date(checkin.value);
+        const end = new Date(checkout.value);
+        const nights = Math.floor((end - start) / (1000 * 60 * 60 * 24));
+
+        if (nights <= 0) {
+            nightsCount.textContent = "-";
+            pricePerNight.textContent = "-";
+            totalPrice.textContent = "-";
+            availabilityText.textContent = "Dates invalides";
+            bookingSummary.style.display = "block";
+            return;
+        }
+
+        const price = parseInt(roomType.selectedOptions[0].dataset.price);
+        const total = nights * price;
+
+        nightsCount.textContent = nights;
+        pricePerNight.textContent = price.toLocaleString() + " FCFA";
+        totalPrice.textContent = total.toLocaleString() + " FCFA";
+
+        // Affichage dynamique du message de disponibilité
+        availabilityText.textContent = "Chambre disponible pour vos dates";
+
+        bookingSummary.style.display = "block";
+    }
+
+    checkin.addEventListener("change", updateBookingSummary);
+    checkout.addEventListener("change", updateBookingSummary);
+    roomType.addEventListener("change", updateBookingSummary);
+</script>
+                    <div class="form-group">
+                        <label for="message">Message / Demandes spéciales</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Envoyer la Demande</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ASSIGA VILLAGE</h3>
+                <p>
+                    Hôtel de luxe et lodge africain offrant une expérience authentique alliant tradition et modernité au cœur du Cameroun.
+                </p>
+                <p style="margin-top: 1.5rem;">
+                    Un lieu unique où l'excellence du service rencontre la chaleur de l'hospitalité africaine.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#about">Notre Histoire</a></li>
+                    <li><a href="#rooms">Hébergements</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Galerie</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#rooms">Réservation</a></li>
+                    <li><a href="#services">Restaurant</a></li>
+                    <li><a href="#services">Spa & Bien-être</a></li>
+                    <li><a href="#services">Piscine</a></li>
+                    <li><a href="#contact">Conciergerie</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Informations</h3>
+                <ul class="footer-links">
+                    <li><a href="#contact">Nous Contacter</a></li>
+                    <li><a href="#about">Conditions Générales</a></li>
+                    <li><a href="#about">Politique de Confidentialité</a></li>
+                    <li><a href="#about">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Assiga Village. Tous droits réservés. | Hôtel & Village Touristique de Luxe</p>
+        </div>
+    </footer>
+
+    <script>
+        //  VARIABLES GLOBALES 
+        const navbar = document.getElementById('navbar');
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const contactForm = document.getElementById('contactForm');
+
+        //  NAVIGATION STICKY 
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        //  MENU MOBILE 
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Fermer le menu au clic sur un lien
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+
+        //  SCROLL FLUIDE 
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const target = document.querySelector(targetId);
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        //  ANIMATION AU SCROLL 
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        //  VALIDATION FORMULAIRE DE CONTACT 
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Réinitialiser toutes les erreurs
+            document.querySelectorAll('.error').forEach(error => {
+                error.style.display = 'none';
+            });
+
+            let isValid = true;
+
+            // Validation Prénom
+            const firstName = document.getElementById('firstName');
+            if (firstName.value.trim().length < 2) {
+                document.getElementById('firstNameError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validation Nom
+            const lastName = document.getElementById('lastName');
+            if (lastName.value.trim().length < 2) {
+                document.getElementById('lastNameError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validation Email
+            const email = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validation Téléphone
+            const phone = document.getElementById('phone');
+            const phoneRegex = /^[\d\s\+\-\(\)]+$/;
+            if (!phoneRegex.test(phone.value) || phone.value.length < 8) {
+                document.getElementById('phoneError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validation Date d'arrivée
+            const checkin = document.getElementById('checkin');
+            if (!checkin.value) {
+                document.getElementById('checkinError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validation Date de départ
+            const checkout = document.getElementById('checkout');
+            if (!checkout.value) {
+                document.getElementById('checkoutError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Vérifier que la date de départ est après la date d'arrivée
+            if (checkin.value && checkout.value) {
+                const checkinDate = new Date(checkin.value);
+                const checkoutDate = new Date(checkout.value);
+                if (checkoutDate <= checkinDate) {
+                    document.getElementById('checkoutError').textContent = 'La date de départ doit être après la date d\'arrivée';
+                    document.getElementById('checkoutError').style.display = 'block';
+                    isValid = false;
+                }
+            }
+
+            // Si tout est valide
+            if (isValid) {
+                // Afficher un message de succès
+                alert('Merci pour votre demande de réservation !\n\nNotre équipe vous contactera dans les plus brefs délais pour confirmer votre réservation.\n\nÀ très bientôt à Assiga Village !');
+                
+                // Réinitialiser le formulaire
+                contactForm.reset();
+            } else {
+                // Faire défiler jusqu'à la première erreur
+                const firstError = document.querySelector('.error[style="display: block;"]');
+                if (firstError) {
+                    firstError.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        });
+
+        //  EFFET PARALLAXE LÉGER SUR LE HERO 
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const hero = document.querySelector('.hero');
+                    const scrolled = window.pageYOffset;
+                    if (scrolled < window.innerHeight) {
+                        hero.style.transform = `translateY(${scrolled * 0.4}px)`;
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        //  DATE MINIMUM POUR LES RÉSERVATIONS (AUJOURD'HUI)
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('checkin').setAttribute('min', today);
+        document.getElementById('checkout').setAttribute('min', today);
+
+        // Mettre à jour la date minimum de départ quand la date d'arrivée change
+        document.getElementById('checkin').addEventListener('change', function() {
+            const checkinDate = new Date(this.value);
+            checkinDate.setDate(checkinDate.getDate() + 1);
+            const minCheckout = checkinDate.toISOString().split('T')[0];
+            document.getElementById('checkout').setAttribute('min', minCheckout);
+        });
+    </script>
+</body>
+</html>
